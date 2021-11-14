@@ -7,6 +7,6 @@
 1. [Install](https://www.docker.com/get-started) docker.
 2. Go to the directory where Dockerfile is
 3. `docker build -t ge_site:1.0 .` (don't forget the dot)
-4. docker run --name ge_site -d -p 80:8000 ge_site:1.0
+4. `docker run --name ge_site -d -p 80:8000 ge_site:1.0`
 
 Done! Go to *localhost:80* or just *localhost* to see the app
