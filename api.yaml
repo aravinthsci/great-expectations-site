@@ -1,0 +1,45 @@
+# kubernetes-fastapi LoadBalancer Service
+# Enables the pods in a deployment to be accessible from outside the cluster
+apiVersion: v1
+kind: Service
+metadata:
+  name: ge-site-svc
+spec:
+  selector:
+    app: ge-site
+  ports:
+    - protocol: "TCP"
+      port: 8080
+      targetPort: 8080
+  type: LoadBalancer
+
+---
+# kf-api Deployment
+# Defines the deployment of the app running in a pod on any worker node
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ge-site
+  labels:
+    app: ge-site
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ge-site
+  template:
+    metadata:
+      labels:
+        app: ge-site
+    spec:
+      containers:
+        - name: ge-site
+          image: ge_site:1.0
+          ports:
+            - containerPort: 8080
+          imagePullPolicy: IfNotPresent
+          resources:
+            # You must specify requests for CPU to autoscale
+            # based on CPU utilization
+            requests:
+              cpu: "250m"

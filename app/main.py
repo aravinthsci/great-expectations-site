@@ -49,4 +49,4 @@ async def show_validations_page(request: Request, link1, link2, link3, page_name
 
 
 if __name__ == "__main__":
-    uvicorn.run('main:app', host='0.0.0.0', port=8000, reload=False, root_path="/")
+    uvicorn.run('main:app', host='0.0.0.0', port=8080, reload=False, root_path="/")
