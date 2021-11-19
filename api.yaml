@@ -14,7 +14,7 @@ spec:
   type: LoadBalancer
 
 ---
-# kf-api Deployment
+# ge-site Deployment
 # Defines the deployment of the app running in a pod on any worker node
 apiVersion: apps/v1
 kind: Deployment
