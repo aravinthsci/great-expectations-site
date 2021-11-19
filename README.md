@@ -16,4 +16,5 @@ Done! Go to *localhost:80* or just *localhost* to see the app
 ``kubectl apply -f api.yaml``
 
 If working locally,use port forwarding to expose the service
+
 ``kubectl port-forward service/ge-site-svc 8080``
